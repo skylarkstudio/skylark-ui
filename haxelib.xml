@@ -1,7 +1,7 @@
-<project name="gui" url="http://www.joshuagranick.com" license="BSD">
+<project name="gui" url="http://www.joshuagranick.com" license="MIT">
     <user name="elyon"/>
     <tag v="cpp"/>
     <tag v="flash"/>
     <description>Dialogs, controls and other lightweight utilities for application interfaces</description>
-    <version name="1.02">Compile fix for C++</version>
+    <version name="1.03">Fixed license</version>
 </project>
