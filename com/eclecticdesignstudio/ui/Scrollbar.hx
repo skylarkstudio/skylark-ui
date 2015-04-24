@@ -1,7 +1,7 @@
 ﻿package com.eclecticdesignstudio.ui;
 
 
-import com.eclecticdesignstudio.motion.Actuate;
+import motion.Actuate;
 import com.eclecticdesignstudio.utils.Utils;
 import flash.display.DisplayObject;
 import flash.display.MovieClip;
@@ -43,8 +43,8 @@ class Scrollbar {
 	
 	private var elements:Array <DisplayObject>;
 	private var hidden:Bool;
-	private var scrollHeight (getScrollHeight, null):Float;
-	private var scrollWidth (getScrollWidth, null):Float;
+	private var scrollHeight (get, null):Float;
+	private var scrollWidth (get, null):Float;
 	
 	
 	public function new (orientation:String, ScrollTrack:DisplayObject, Scroller:DisplayObject, UpArrow:DisplayObject = null, DownArrow:DisplayObject = null) {
@@ -242,14 +242,14 @@ class Scrollbar {
 	
 	
 	
-	private function getScrollHeight ():Float {
+	private function get_scrollHeight ():Float {
 		
 		return (ScrollTrack.height) - (Scroller.height);
 		
 	}
 	
 	
-	private function getScrollWidth ():Float {
+	private function get_scrollWidth ():Float {
 		
 		return (ScrollTrack.width) - (Scroller.width);
 		
@@ -343,11 +343,11 @@ class Scrollbar {
 		
 		if (UpArrow != null) {
 			
-			UpArrow.stage.removeEventListener (MouseEvent.MOUSE_UP, stage_onMouseUp);
+			event.currentTarget.removeEventListener (MouseEvent.MOUSE_UP, stage_onMouseUp);
 			
 		}
 		
-		Scroller.stage.removeEventListener (Event.ENTER_FRAME, stage_onEnterFrame);
+		event.currentTarget.removeEventListener (Event.ENTER_FRAME, stage_onEnterFrame);
 		
 		UpTimer.stop ();
 		DownTimer.stop ();
@@ -359,11 +359,11 @@ class Scrollbar {
 		
 		if (UpArrow != null) {
 			
-			UpArrow.stage.removeEventListener (MouseEvent.MOUSE_UP, stage_onMouseUp);
+			event.currentTarget.removeEventListener (MouseEvent.MOUSE_UP, stage_onMouseUp);
 			
 		}
 		
-		Scroller.stage.removeEventListener (Event.ENTER_FRAME, stage_onEnterFrame);
+		event.currentTarget.removeEventListener (Event.ENTER_FRAME, stage_onEnterFrame);
 		
 		UpTimer.stop ();
 		DownTimer.stop ();
