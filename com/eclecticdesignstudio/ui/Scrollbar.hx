@@ -190,10 +190,14 @@ class Scrollbar {
 	
 	public function scroll (percentage:Float, time:Float):Void {
 		
-		var properties:Dynamic = { };
-		Reflect.setField (properties, property, (maximum - minimum) * percentage + minimum);
-		
-		Actuate.tween (target, time, properties);
+		if (property != null) {
+			
+			var properties:Dynamic = { };
+			Reflect.setField (properties, property, (maximum - minimum) * percentage + minimum);
+			
+			Actuate.tween (target, time, properties);
+			
+		}
 		
 		if (orientation == HORIZONTAL) {
 			
