@@ -9,6 +9,7 @@ import flash.display.MovieClip;
 import flash.display.SimpleButton;
 #end
 import flash.display.Sprite;
+import flash.display.Stage;
 import flash.events.Event;
 import flash.events.MouseEvent;
 import flash.events.TimerEvent;
@@ -347,11 +348,11 @@ class Scrollbar {
 		
 		if (UpArrow != null) {
 			
-			event.currentTarget.removeEventListener (MouseEvent.MOUSE_UP, stage_onMouseUp);
+			cast (event.currentTarget, Stage).removeEventListener (MouseEvent.MOUSE_UP, stage_onMouseUp);
 			
 		}
 		
-		event.currentTarget.removeEventListener (Event.ENTER_FRAME, stage_onEnterFrame);
+		cast (event.currentTarget, Stage).removeEventListener (Event.ENTER_FRAME, stage_onEnterFrame);
 		
 		UpTimer.stop ();
 		DownTimer.stop ();
@@ -363,11 +364,11 @@ class Scrollbar {
 		
 		if (UpArrow != null) {
 			
-			event.currentTarget.removeEventListener (MouseEvent.MOUSE_UP, stage_onMouseUp);
+			cast (event.currentTarget, Stage).removeEventListener (MouseEvent.MOUSE_UP, stage_onMouseUp);
 			
 		}
 		
-		event.currentTarget.removeEventListener (Event.ENTER_FRAME, stage_onEnterFrame);
+		cast (event.currentTarget, Stage).removeEventListener (Event.ENTER_FRAME, stage_onEnterFrame);
 		
 		UpTimer.stop ();
 		DownTimer.stop ();
