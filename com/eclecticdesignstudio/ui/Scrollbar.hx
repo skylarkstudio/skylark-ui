@@ -13,6 +13,7 @@ import flash.events.Event;
 import flash.events.MouseEvent;
 import flash.events.TimerEvent;
 import flash.utils.Timer;
+import flash.Lib;
 
 
 /**
@@ -190,10 +191,14 @@ class Scrollbar {
 	
 	public function scroll (percentage:Float, time:Float):Void {
 		
-		var properties:Dynamic = { };
-		Reflect.setField (properties, property, (maximum - minimum) * percentage + minimum);
-		
-		Actuate.tween (target, time, properties);
+		if (property != null) {
+			
+			var properties:Dynamic = { };
+			Reflect.setField (properties, property, (maximum - minimum) * percentage + minimum);
+			
+			Actuate.tween (target, time, properties);
+			
+		}
 		
 		if (orientation == HORIZONTAL) {
 			
@@ -265,7 +270,7 @@ class Scrollbar {
 	
 	private function DownArrow_onMouseDown (event:MouseEvent):Void {
 		
-		UpArrow.stage.addEventListener (MouseEvent.MOUSE_UP, stage_onMouseUp);
+		Lib.current.stage.addEventListener (MouseEvent.MOUSE_UP, stage_onMouseUp);
 		
 		DownTimer_onTimer (null);
 		DownTimer.start ();
@@ -282,9 +287,9 @@ class Scrollbar {
 	
 	private function Scroller_onMouseDown (event:MouseEvent):Void {
 		
-		Scroller.stage.addEventListener (MouseEvent.MOUSE_UP, stage_onMouseUp);
-		Scroller.stage.addEventListener (Event.ENTER_FRAME, stage_onEnterFrame);
-		Scroller.stage.addEventListener (Event.MOUSE_LEAVE, stage_onMouseLeave);
+		Lib.current.stage.addEventListener (MouseEvent.MOUSE_UP, stage_onMouseUp);
+		Lib.current.stage.addEventListener (Event.ENTER_FRAME, stage_onEnterFrame);
+		Lib.current.stage.addEventListener (Event.MOUSE_LEAVE, stage_onMouseLeave);
 		
 	}
 	
@@ -341,13 +346,8 @@ class Scrollbar {
 	
 	private function stage_onMouseLeave (event:Event):Void {
 		
-		if (UpArrow != null) {
-			
-			event.currentTarget.removeEventListener (MouseEvent.MOUSE_UP, stage_onMouseUp);
-			
-		}
-		
-		event.currentTarget.removeEventListener (Event.ENTER_FRAME, stage_onEnterFrame);
+		Lib.current.removeEventListener (MouseEvent.MOUSE_UP, stage_onMouseUp);
+		Lib.current.removeEventListener (Event.ENTER_FRAME, stage_onEnterFrame);
 		
 		UpTimer.stop ();
 		DownTimer.stop ();
@@ -357,13 +357,8 @@ class Scrollbar {
 	
 	private function stage_onMouseUp (event:MouseEvent):Void {
 		
-		if (UpArrow != null) {
-			
-			event.currentTarget.removeEventListener (MouseEvent.MOUSE_UP, stage_onMouseUp);
-			
-		}
-		
-		event.currentTarget.removeEventListener (Event.ENTER_FRAME, stage_onEnterFrame);
+		Lib.current.removeEventListener (MouseEvent.MOUSE_UP, stage_onMouseUp);
+		Lib.current.removeEventListener (Event.ENTER_FRAME, stage_onEnterFrame);
 		
 		UpTimer.stop ();
 		DownTimer.stop ();
@@ -385,7 +380,7 @@ class Scrollbar {
 	
 	private function UpArrow_onMouseDown (event:MouseEvent):Void {
 		
-		UpArrow.stage.addEventListener (MouseEvent.MOUSE_UP, stage_onMouseUp);
+		Lib.current.stage.addEventListener (MouseEvent.MOUSE_UP, stage_onMouseUp);
 		
 		UpTimer_onTimer (null);
 		UpTimer.start ();
