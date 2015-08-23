@@ -11,6 +11,7 @@ import flash.display.SimpleButton;
 import flash.display.Sprite;
 import flash.display.Stage;
 import flash.events.Event;
+import flash.events.IEventDispatcher;
 import flash.events.MouseEvent;
 import flash.events.TimerEvent;
 import flash.utils.Timer;
@@ -271,7 +272,7 @@ class Scrollbar {
 	
 	private function DownArrow_onMouseDown (event:MouseEvent):Void {
 		
-		Lib.current.stage.addEventListener (MouseEvent.MOUSE_UP, stage_onMouseUp);
+		DownArrow.stage.addEventListener (MouseEvent.MOUSE_UP, stage_onMouseUp);
 		
 		DownTimer_onTimer (null);
 		DownTimer.start ();
@@ -288,9 +289,9 @@ class Scrollbar {
 	
 	private function Scroller_onMouseDown (event:MouseEvent):Void {
 		
-		Lib.current.stage.addEventListener (MouseEvent.MOUSE_UP, stage_onMouseUp);
-		Lib.current.stage.addEventListener (Event.ENTER_FRAME, stage_onEnterFrame);
-		Lib.current.stage.addEventListener (Event.MOUSE_LEAVE, stage_onMouseLeave);
+		Scroller.stage.addEventListener (MouseEvent.MOUSE_UP, stage_onMouseUp);
+		Scroller.stage.addEventListener (Event.ENTER_FRAME, stage_onEnterFrame);
+		Scroller.stage.addEventListener (Event.MOUSE_LEAVE, stage_onMouseLeave);
 		
 	}
 	
@@ -347,8 +348,8 @@ class Scrollbar {
 	
 	private function stage_onMouseLeave (event:Event):Void {
 		
-		Lib.current.removeEventListener (MouseEvent.MOUSE_UP, stage_onMouseUp);
-		Lib.current.removeEventListener (Event.ENTER_FRAME, stage_onEnterFrame);
+		cast (event.currentTarget, IEventDispatcher).removeEventListener (MouseEvent.MOUSE_UP, stage_onMouseUp);
+		cast (event.currentTarget, IEventDispatcher).removeEventListener (Event.ENTER_FRAME, stage_onEnterFrame);
 		
 		UpTimer.stop ();
 		DownTimer.stop ();
@@ -358,8 +359,8 @@ class Scrollbar {
 	
 	private function stage_onMouseUp (event:MouseEvent):Void {
 		
-		Lib.current.removeEventListener (MouseEvent.MOUSE_UP, stage_onMouseUp);
-		Lib.current.removeEventListener (Event.ENTER_FRAME, stage_onEnterFrame);
+		cast (event.currentTarget, IEventDispatcher).removeEventListener (MouseEvent.MOUSE_UP, stage_onMouseUp);
+		cast (event.currentTarget, IEventDispatcher).removeEventListener (Event.ENTER_FRAME, stage_onEnterFrame);
 		
 		UpTimer.stop ();
 		DownTimer.stop ();
@@ -381,7 +382,7 @@ class Scrollbar {
 	
 	private function UpArrow_onMouseDown (event:MouseEvent):Void {
 		
-		Lib.current.stage.addEventListener (MouseEvent.MOUSE_UP, stage_onMouseUp);
+		UpArrow.stage.addEventListener (MouseEvent.MOUSE_UP, stage_onMouseUp);
 		
 		UpTimer_onTimer (null);
 		UpTimer.start ();
