@@ -196,7 +196,7 @@ class Scrollbar {
 		if (property != null) {
 			
 			var properties:Dynamic = { };
-			Reflect.setField (properties, property, (maximum - minimum) * percentage + minimum);
+			Reflect.setProperty (properties, property, (maximum - minimum) * percentage + minimum);
 			
 			Actuate.tween (target, time, properties);
 			
@@ -234,7 +234,7 @@ class Scrollbar {
 		
 		if (target != null && property != null) {
 			
-			currentPosition = Utils.constrain ((Reflect.field (target, property) - minimum) / (maximum - minimum), 0, 1);
+			currentPosition = Utils.constrain ((Reflect.getProperty (target, property) - minimum) / (maximum - minimum), 0, 1);
 			scroll (currentPosition, time);
 			
 		}

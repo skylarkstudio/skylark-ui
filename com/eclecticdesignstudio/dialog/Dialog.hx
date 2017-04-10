@@ -121,9 +121,9 @@ class Dialog extends Sprite {
 	
 	private function constructButton (name:String, eventType:String):Void {
 		
-		if (Reflect.hasField (Display, name)) {
+		if (Reflect.hasField (Display, name) || Reflect.hasField (Display, "get_" + name)) {
 			
-			ButtonHelper.makeButton (Reflect.field (Display, name), ButtonHelper.handleEvent (sendEvent, [ eventType ]), true);
+			ButtonHelper.makeButton (Reflect.getProperty (Display, name), ButtonHelper.handleEvent (sendEvent, [ eventType ]), true);
 			
 		}
 		
