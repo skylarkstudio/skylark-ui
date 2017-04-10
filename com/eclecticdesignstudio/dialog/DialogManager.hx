@@ -17,11 +17,11 @@ class DialogManager extends EventDispatcher {
 	
 	private static var global:DialogManager;
 	
-	private var dialogDataByName:Hash <DialogData>;
+	private var dialogDataByName:Map<String, DialogData>;
 	private var dropPoint:Sprite;
 	private var initialized:Bool;
-	private var instancesByDisplayOrder:Array <Dynamic>;
-	private var instancesByName:Hash <Array <Dialog>>;
+	private var instancesByDisplayOrder:Array<Dynamic>;
+	private var instancesByName:Map<String, Array<Dialog>>;
 	
 	
 	public function new (dropPoint:Sprite):Void {
@@ -30,9 +30,9 @@ class DialogManager extends EventDispatcher {
 		
 		this.dropPoint = dropPoint;
 		
-		dialogDataByName = new Hash <DialogData> ();
+		dialogDataByName = new Map<String, DialogData> ();
 		instancesByDisplayOrder = new Array <Dialog> ();
-		instancesByName = new Hash <Array <Dialog>> ();
+		instancesByName = new Map<String, Array <Dialog>> ();
 		
 	}
 	

@@ -4,8 +4,8 @@
 import com.eclecticdesignstudio.dialog.events.DialogEvent;
 import com.eclecticdesignstudio.helpers.ButtonHelper;
 import com.eclecticdesignstudio.helpers.SpriteHelper;
-import com.eclecticdesignstudio.motion.Actuate;
-import com.eclecticdesignstudio.motion.actuators.GenericActuator;
+import motion.Actuate;
+import motion.actuators.GenericActuator;
 import flash.display.DisplayObject;
 #if !jeash
 import flash.display.SimpleButton;
@@ -130,7 +130,7 @@ class Dialog extends Sprite {
 	}
 	
 	
-	public function hide ():IGenericActuator {
+	public function hide ():GenericActuator<Dynamic> {
 		
 		if (!closed) {
 			
@@ -244,7 +244,7 @@ class Dialog extends Sprite {
 	}
 	
 	
-	public function show ():IGenericActuator {
+	public function show () {
 		
 		closed = false;
 		return SpriteHelper.show (this, dialogData.fadeInTime);

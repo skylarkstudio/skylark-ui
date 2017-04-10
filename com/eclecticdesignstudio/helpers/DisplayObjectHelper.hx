@@ -1,8 +1,8 @@
 ﻿package com.eclecticdesignstudio.helpers;
 
 
-import com.eclecticdesignstudio.motion.Actuate;
-import com.eclecticdesignstudio.motion.actuators.GenericActuator;
+import motion.Actuate;
+import motion.actuators.GenericActuator;
 import flash.display.DisplayObject;
 
 
@@ -12,7 +12,7 @@ import flash.display.DisplayObject;
 class DisplayObjectHelper {
 	
 	
-	public static function fade (displayObject:DisplayObject, alpha:Float, time:Float, autoVisible:Bool = true):IGenericActuator {
+	public static function fade (displayObject:DisplayObject, alpha:Float, time:Float, autoVisible:Bool = true) {
 		
 		if (time > 0) {
 			

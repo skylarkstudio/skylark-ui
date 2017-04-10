@@ -1,7 +1,7 @@
 ﻿package com.eclecticdesignstudio.helpers;
 
 
-import com.eclecticdesignstudio.motion.actuators.GenericActuator;
+import motion.actuators.GenericActuator;
 import flash.display.DisplayObject;
 import flash.display.MovieClip;
 import flash.display.Sprite;
@@ -15,7 +15,7 @@ import flash.events.MouseEvent;
 class ButtonHelper {
 	
 	
-	public static function disable (button:Dynamic, time:Float = 1, alpha:Float = 0.3):IGenericActuator {
+	public static function disable (button:Dynamic, time:Float = 1, alpha:Float = 0.3) {
 		
 		button.mouseEnabled = false;
 		
@@ -30,7 +30,7 @@ class ButtonHelper {
 	}
 	
 	
-	public static function enable (button:Dynamic, time:Float = 1):IGenericActuator {
+	public static function enable (button:Dynamic, time:Float = 1) {
 		
 		button.mouseEnabled = true;
 		return DisplayObjectHelper.fade (cast (button, DisplayObject), 1, time);
@@ -49,7 +49,7 @@ class ButtonHelper {
 	}
 	
 	
-	public static function hide (button:Dynamic, time:Float = 1):IGenericActuator {
+	public static function hide (button:Dynamic, time:Float = 1) {
 		
 		button.mouseEnabled = false;
 		return DisplayObjectHelper.fade (cast (button, DisplayObject), 0, time);

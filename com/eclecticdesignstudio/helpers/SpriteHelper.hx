@@ -1,7 +1,7 @@
 ﻿package com.eclecticdesignstudio.helpers;
 
 
-import com.eclecticdesignstudio.motion.actuators.GenericActuator;
+import motion.actuators.GenericActuator;
 import flash.display.Sprite;
 import flash.events.MouseEvent;
 
@@ -33,7 +33,7 @@ class SpriteHelper {
 	}
 	
 	
-	public static function hide (sprite:Sprite, time:Float = 1):IGenericActuator {
+	public static function hide (sprite:Sprite, time:Float = 1) {
 		
 		disable (sprite);
 		return DisplayObjectHelper.fade (sprite, 0, time);
@@ -41,7 +41,7 @@ class SpriteHelper {
 	}
 	
 	
-	public static function show (sprite:Sprite, time:Float = 1):IGenericActuator {
+	public static function show (sprite:Sprite, time:Float = 1) {
 		
 		enable (sprite);
 		return DisplayObjectHelper.fade (sprite, 1, time);

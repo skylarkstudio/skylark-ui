@@ -7,7 +7,7 @@
 class UniqueID {
 	
 	
-	private static var index:Hash <Int> = new Hash <Int> ();
+	private static var index:Map<String, Int> = new Map<String, Int> ();
 	
 	
 	public static function create (name:String = "uniqueID"):String {

@@ -2,7 +2,7 @@ package com.eclecticdesignstudio.ui;
 
 
 import com.eclecticdesignstudio.helpers.ButtonHelper;
-import com.eclecticdesignstudio.motion.Actuate;
+import motion.Actuate;
 import com.eclecticdesignstudio.utils.Utils;
 import flash.display.Sprite;
 import flash.events.Event;
@@ -20,9 +20,9 @@ class SlideToggle extends EventDispatcher {
 	public var Slider:Sprite;
 	public var SlideTrack:Sprite;
 	
-	public var column (getColumn, setColumn):Int;
+	public var column (get, set):Int;
 	public var defaultTime:Float;
-	public var row (getRow, setRow):Int;
+	public var row (get, set):Int;
 	public var snapSensitivity:Float;
 	public var totalColumns:Int;
 	public var totalRows:Int;
@@ -141,14 +141,14 @@ class SlideToggle extends EventDispatcher {
 	
 	
 	
-	private function getColumn ():Int {
+	private function get_column ():Int {
 		
 		return _column;
 		
 	}
 	
 	
-	private function setColumn (value:Int):Int {
+	private function set_column (value:Int):Int {
 		
 		setValue (value, _row);
 		
@@ -157,14 +157,14 @@ class SlideToggle extends EventDispatcher {
 	}
 	
 	
-	private function getRow ():Int {
+	private function get_row ():Int {
 		
 		return _row;
 		
 	}
 	
 	
-	private function setRow (value:Int):Int {
+	private function set_row (value:Int):Int {
 		
 		setValue (_column, value);
 		

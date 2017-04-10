@@ -2,7 +2,7 @@ package com.eclecticdesignstudio.ui;
 
 
 import com.eclecticdesignstudio.helpers.ButtonHelper;
-import com.eclecticdesignstudio.motion.Actuate;
+import motion.Actuate;
 import flash.display.Sprite;
 import flash.events.Event;
 import flash.events.EventDispatcher;
@@ -19,7 +19,7 @@ class CheckBox extends EventDispatcher {
 	public var CheckIcon:Sprite;
 	public var Label:Sprite;
 	
-	public var checked (getChecked, setChecked):Bool;
+	public var checked (get, set):Bool;
 	public var defaultTime:Float;
 	
 	private var cacheBackgroundAlpha:Float;
@@ -148,14 +148,14 @@ class CheckBox extends EventDispatcher {
 	
 	
 	
-	public function getChecked ():Bool {
+	private function get_checked ():Bool {
 		
 		return _checked;
 		
 	}
 	
 	
-	public function setChecked (value:Bool):Bool {
+	private function set_checked (value:Bool):Bool {
 		
 		toggleChecked (value, defaultTime, false);
 		
