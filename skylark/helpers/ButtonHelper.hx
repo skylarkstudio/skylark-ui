@@ -61,8 +61,8 @@ class ButtonHelper {
 		
 		if (Std.is (target, Sprite)) {
 			
-			untyped target.mouseChildren = false;
-			untyped target.buttonMode = true;
+			cast (target, Sprite).mouseChildren = false;
+			cast (target, Sprite).buttonMode = true;
 			
 		}
 		

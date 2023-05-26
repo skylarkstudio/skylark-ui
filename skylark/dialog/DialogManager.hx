@@ -227,11 +227,11 @@ class DialogManager extends EventDispatcher {
 		
 		if (Std.is (dialog, Dialog)) {
 			
-			return untyped dialog.dialogData.name;
+			return cast (dialog, Dialog).dialogData.name;
 			
 		} else if (Std.is (dialog, DialogData)) {
 			
-			return untyped dialog.name;
+			return cast (dialog, DialogData).name;
 			
 		} else if (dialog != null) {
 			

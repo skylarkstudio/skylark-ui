@@ -86,13 +86,13 @@ class Scrollbar {
 		
 		if (Std.is (Scroller, Sprite)) {
 			
-			untyped Scroller.buttonMode = true;
+			cast (Scroller, Sprite).buttonMode = true;
 			
 		}
 		
 		if (Std.is (ScrollTrack, Sprite)) {
 			
-			untyped ScrollTrack.buttonMode = true;
+			cast (ScrollTrack, Sprite).buttonMode = true;
 			
 		}
 		
@@ -113,12 +113,12 @@ class Scrollbar {
 			
 			#if !jeash if (Std.is (element, SimpleButton)) {
 				
-				untyped element.mouseEnabled = false;
+				cast (element, SimpleButton).mouseEnabled = false;
 				
 			} else #end if (Std.is (element, Sprite)) {
 				
-				untyped element.mouseChildren = false;
-				untyped element.mouseEnabled = false;
+				cast (element, Sprite).mouseChildren = false;
+				cast (element, Sprite).mouseEnabled = false;
 				
 			}
 			
@@ -144,12 +144,12 @@ class Scrollbar {
 			
 			#if !jeash if (Std.is (element, SimpleButton)) {
 				
-				untyped element.mouseEnabled = true;
+				cast (element, SimpleButton).mouseEnabled = true;
 				
 			} else #end if (Std.is (element, Sprite)) {
 				
-				untyped element.mouseChildren = true;
-				untyped element.mouseEnabled = true;
+				cast (element, Sprite).mouseChildren = true;
+				cast (element, Sprite).mouseEnabled = true;
 				
 			}
 			
